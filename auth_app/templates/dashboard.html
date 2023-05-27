@@ -1,0 +1,11 @@
+{% extends 'extras/base.html' %}
+{% block content %}
+{% include 'extras/nav.html' %}
+<br><br><br>
+<h1 class='text-center p-3 text-dark rounded'>Welcome to Advanced Authentication System Demo</h1>
+<p align="center">This system is built in python-Django. Try it yourself by clicking in register up at the navigation bar.</p>
+<br>
+{% if user.is_authenticated %}
+<p align="center"><span class="help-block text-success">Congratulations! You have succesfully registered and logged in by passing the validations and authentications.</span></p>
+{% endif %}
+{% endblock %}

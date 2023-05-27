@@ -1,0 +1,47 @@
+{% extends "extras/base.html" %}
+{% load static %}
+{% block title %}Advanced Authentication{% endblock %}
+
+{% block content %}
+{% include "extras/nav.html" %}
+{% if user.is_authenticated %}
+<br>
+  <div class="row">
+    <div class="col-md-2 my-5">
+      <div id="sidebar">
+        <br><br><br>
+        <h4>Table of Content</h4>
+        <ol class="list-group">
+          <li><a href="#section-1">About Us</a></li>
+          <li><a href="#section-2">reCaptcha V2</a></li>
+          <!-- add more sections here -->
+        </ol>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="col-md-9 my-3">
+      <h1 id="section-1">About Us</h1>
+      <p>Advanced Authentication is the process of verifying the identity of a user beyond just a username and password. This can include 
+        multi-factor authentication, Two-factor authentication (2FA), Email verification, biometric authentication, and more.
+      This Authentication System Demo is built using python in Django framework.</p>
+
+      <h2 id="section-2">reCAPTCHA V2 Authentication</h2>
+      <p align="justify">reCAPTCHA v2 is a security feature developed by Google to protect websites from spam and automated abuse. It uses a challenge-response
+        mechanism that requires users to solve a visual puzzle to prove that they are human and not a bot.
+        The system presents a series of images to the user, which may include distorted text, numbers, or other objects, and asks the user to 
+        identify a particular object or enter a series of characters. The user's response is then compared to the expected response to determine 
+        whether they are human or not.
+        reCAPTCHA v2 is designed to be easy for humans to solve, but difficult for bots to pass. It is also designed to be accessible to users 
+        with disabilities by providing an audio option for the challenge.
+        reCAPTCHA v2 also includes a score-based system that can detect suspicious user behavior and assign a risk score to each user. Website owners 
+        can use this score to decide whether to allow or block certain actions or transactions, depending on the level of risk associated with the user.
+        
+        Overall, reCAPTCHA v2 is an effective tool for preventing automated abuse and protecting website security, while ensuring a good user experience for legitimate users.</p>
+      <img src="{% static 'img/captcha.png' %}" class="img-fluid my-3" alt="Multi-Factor Authentication">
+
+
+    </div>
+  </div>
+  {% endif %}
+{% endblock %}

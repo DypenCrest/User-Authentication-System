@@ -1,0 +1,39 @@
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Authentication Demo</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="js" href="{% static 'js/password_strength_meter.js' %}"
+</head>
+
+<body>
+
+    <style>
+        body {
+            background-image: url('/static/img/bg.png');
+        }
+    </style>
+    <div class="container my-5">
+<br>
+        {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}
+    {% endif %}
+        {% block content %}
+        {% endblock %}
+    </div>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/zxcvbn.js' %}"></script>
+    <script src="{% static 'js/password_strength_meter.js' %}"></script>
+</body>
+
+</html>

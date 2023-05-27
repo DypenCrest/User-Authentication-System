@@ -1,0 +1,64 @@
+{% extends 'extras/base.html' %}
+{% load static %}
+{% block content %}
+{% include 'extras/nav.html' %}
+<div class="row">
+  <div class="col-md-9 my-3">
+  <h1>Advanced Authenticator Demo</h1>
+  </div>
+<div class=" mt-2">
+<h2>Create an account</h2>
+</div>
+<form method="post">
+{% csrf_token %}
+<div class="mt-3 form-group">
+    {{ form.username }}
+    {% if form.username.errors %}
+        {% for error in form.username.errors %}
+            <span class="help-block text-danger">{{ error }}</span>
+        {% endfor %}
+    {% endif %}
+</div>
+<div class="mt-3 form-group">
+    {{ form.email }}
+    {% if form.email.errors %}
+        {% for error in form.email.errors %}
+            <span class="help-block text-danger">{{ error }}</span>
+        {% endfor %}
+    {% endif %}
+</div>
+<div class="mt-3 form-group">
+    {{ form.first_name }}
+    {{ form.last_name }}
+</div>
+<div class="mt-3 form-group">
+  {{ form.password1 }}
+  <div id="password-strength-meter"></div>
+  {% if form.password1.errors or form.password2.errors %}
+  <ul class="list-unstyled">
+  {% for error in form.password1.errors %}
+      <li><span class="help-block text-danger">{{ error }}</span></li>
+  {% endfor %}
+  {% for error in form.password2.errors %}
+      <li><span class="help-block text-danger">{{ error }}</span></li>
+  {% endfor %}
+  </ul>
+  {% endif %}
+  {{ form.password2 }}
+</div>
+<div class="mt-3 form-group">
+  <label for="{{ form.captcha.id_for_label }}">Are you a robot?</label>
+  {% if form.errors %}
+  {% if 'captcha' in form.errors %}
+    <div class="mt-3">
+      <span class="help-block text-danger">Please verify that you are not a robot before submitting.</span>
+    </div>
+  {% endif %}
+{% endif %}
+  {{ form.captcha }}
+</div>
+<button type="submit" class="btn btn-Success">Sign Up</button>
+</form>
+<p>Already have an account? <a href="{% url 'login' %}" class="no-underline">Log In</a></p>
+</div>
+{% endblock %}
