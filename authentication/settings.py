@@ -130,8 +130,8 @@ STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Recaptcha settings
-RECAPTCHA_PUBLIC_KEY = '6LeBaDElAAAAAJsKq4u1Cnij5-MzI1jKDSclmHHR'
-RECAPTCHA_PRIVATE_KEY = '6LeBaDElAAAAAPiLEvL1H-v0B2Kb6H1DTvQRSe-l'
+RECAPTCHA_PUBLIC_KEY = 'key here'
+RECAPTCHA_PRIVATE_KEY = 'key here'
 
 MESSAGE_TAGS = {
     messages.INFO: ('info', 3), # display for 3 seconds
@@ -144,8 +144,8 @@ AUTH_USER_MODEL = 'auth_app.CustomUser'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
 EMAIL_PORT = '2525'
-EMAIL_HOST_USER = '13f8d4d8d9f555'
-EMAIL_HOST_PASSWORD = '5decbca1373429'
+EMAIL_HOST_USER = 'username here'
+EMAIL_HOST_PASSWORD = 'passwordhere'
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 
